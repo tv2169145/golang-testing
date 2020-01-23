@@ -23,7 +23,7 @@ func TestBubbleSortAsc(t *testing.T) {
 }
 
 func BenchmarkBubbleSortAsc(b *testing.B) {
-	els := getElement(100000)
+	els := getElement(10000)
 	for i := 0; i < b.N; i++ {
 		BubbleSortAsc(els)
 	}
@@ -38,8 +38,24 @@ func TestBasicSortAsc(t *testing.T) {
 }
 
 func BenchmarkBasicSortAsc(b *testing.B) {
-	els := getElement(100000)
-	for i := 0; i <= b.N; i++ {
+	els := getElement(10000)
+	for i := 0; i < b.N; i++ {
 		BasicSortAsc(els)
 	}
+}
+
+func TestBubbleSortDesc(t *testing.T) {
+	s := []int{2, 4, 3, 7, 1, 8}
+	fmt.Println(s)
+	BubbleSortDesc(s)
+	assert.EqualValues(t, 8, s[0])
+	fmt.Println(s)
+}
+
+func TestBasicSortDesc(t *testing.T) {
+	s := []int{1, 3, 2, 6, 4, 8}
+	fmt.Println(s)
+	BasicSortDesc(s)
+	fmt.Println(s)
+	assert.EqualValues(t, 8, s[0])
 }
